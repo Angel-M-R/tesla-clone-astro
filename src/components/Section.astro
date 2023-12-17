@@ -1,0 +1,39 @@
+---
+const { color, title, subtitle, footerText, image } = Astro.props;
+const textColor = `text-${color}`;
+---
+
+<section
+	class="landing-section bg-black h-screen w-screen text-center relative overflow-hidden"
+	data-header-color={color}
+>
+	<header class="z-30 relative">
+		<h2 class=`${textColor} pt-56 text-5xl pb-4 z-10`>{title}</h2>
+		<p>
+			<a
+				class=`${textColor} border-b-[1px] text-sm font-light border-${color}`
+				href="#">{subtitle}</a
+			>
+		</p>
+	</header>
+	<footer class="z-30 absolute bottom-3 left-0 right-0">
+		<div class="flex gap-5 justify-center pb-8">
+			<a class="py-3 px-14 rounded-md bg-black/70 text-white text-sm" href="/"
+				>Pedido personalizado</a
+			>
+			<a
+				class="py-3 px-14 rounded-md bg-white text-black text-sm bg-opacity-80"
+				href="/">Prueba de conducción</a
+			>
+		</div>
+		<p>
+			<a
+				class=`${textColor} inline-block border-b-[1px] border-${color} text-sm`
+				href="#">{footerText}</a
+			>
+		</p>
+	</footer>
+	<div class="absolute left-0 top-0 bottom-0 right-0 z-10">
+		<img src={image} class="h-full w-full object-cover" />
+	</div>
+</section>
